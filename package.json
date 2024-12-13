@@ -1,0 +1,40 @@
+{
+    "name": "folia-backend-challenge",
+    "version": "0.0.0",
+    "main": "index.js",
+    "scripts": {
+        "start": "node dist/index.js",
+        "build": "tsc",
+        "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Joseph Perez",
+    "license": "MIT",
+    "dependencies": {
+        "axios": "^1.7.9",
+        "bcrypt": "5.1.0",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.7",
+        "eslint": "^8.57.1",
+        "express": "^4.21.2",
+        "inversify": "6.1.0",
+        "inversify-binding-decorators": "4.0.0",
+        "inversify-express-utils": "6.4.3",
+        "jsonwebtoken": "^9.0.2",
+        "mongoose": "6.13.3",
+        "node-cron": "^3.0.3",
+        "reflect-metadata": "^0.2.2",
+        "ts-node": "^10.9.2",
+        "yup": "^1.5.0"
+    },
+    "devDependencies": {
+        "@types/bcrypt": "^5.0.2",
+        "@types/cors": "^2.8.17",
+        "@types/express": "^5.0.0",
+        "@types/jsonwebtoken": "^9.0.7",
+        "@types/node": "^22.10.2",
+        "@types/node-cron": "^3.0.11",
+        "ts-node-dev": "^2.0.0",
+        "typescript": "^5.7.2"
+    }
+}
