@@ -18,8 +18,8 @@ export default class ReminderValidator extends ValidatorController {
         GET: {
             querySchema: yup.object({
                 search: yup.string().notRequired(),
-                startDate: customDateSchema.datetime().notRequired(),
-                endDate: customDateSchema.datetime().notRequired(),
+                startDate: customDateSchema.notRequired(),
+                endDate: customDateSchema.notRequired(),
             }),
         },
         POST: {
