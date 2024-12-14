@@ -18,13 +18,25 @@ export default class ReminderService {
     }
 
     /**
-     * Sets the class variable: userId
+     * Sets the class variable "userId"
      * @param {Types.ObjectId} userId
      */
     public setUserId(
         userId: Types.ObjectId,
     ): void {
         this.userId = userId;
+    }
+
+    /**
+     * Returns the class variable "userId" if it has been set
+     * @returns {Types.ObjectId}
+     */
+    private getRequestersUserId(): Types.ObjectId {
+        if (!this.userId) {
+            throw new Error('User ID was not set.');
+        }
+
+        return this.userId;
     }
 
     /**
@@ -191,8 +203,10 @@ export default class ReminderService {
             return (createdAt >= startDate) && (createdAt <= endDate);
         }
 
-        // Calculate the next valid occurrence after or on startDate
+        // Calculate how many intervals have passed between createdAt and the queried startDate
         const intervalsPassed = Math.ceil(timeDifference / intervalMs);
+
+        // Calculate the next valid occurrence after or on startDate
         const nextOccurrence = new Date(createdAt.getTime() + intervalsPassed * intervalMs);
 
         // Check if the next occurrence falls within the range
@@ -361,13 +375,5 @@ export default class ReminderService {
         }
 
         return deleteData;
-    }
-
-    private getRequestersUserId(): Types.ObjectId {
-        if (!this.userId) {
-            throw new Error('User ID was not set.');
-        }
-
-        return this.userId;
     }
 }

@@ -173,8 +173,10 @@ export default class OpenReminderService {
             return (createdAt >= startDate) && (createdAt <= endDate);
         }
 
-        // Calculate the next valid occurrence after or on startDate
+        // Calculate how many intervals have passed between createdAt and the queried startDate
         const intervalsPassed = Math.ceil(timeDifference / intervalMs);
+
+        // Calculate the next valid occurrence after or on startDate
         const nextOccurrence = new Date(createdAt.getTime() + intervalsPassed * intervalMs);
 
         // Check if the next occurrence falls within the range
